@@ -116,3 +116,7 @@ document.getElementById("call-btn-9").addEventListener("click", function(){
     handleCallBtn("service-name-9", "service-number-9")
 })
 
+// clear btn functionality
+document.getElementById("clear-btn").addEventListener("click", function(){
+    document.getElementById("call-history-container").innerHTML = ""
+})
