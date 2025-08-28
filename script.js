@@ -1,3 +1,5 @@
+const callHistory = [];
+
 // function to all heart icon
 function handleHeartIcon(){
     const heartCount = parseInt(document.getElementById("heart-count").innerText);
@@ -20,6 +22,30 @@ function handleCallBtn(id1,id2){
     const serviceName = document.getElementById(id1).innerText;
     const serviceNumber = document.getElementById(id2).innerText;
     alert('📞' + serviceName + ' : ' + serviceNumber);
+
+    const data = {
+        name: serviceName,
+        number: serviceNumber,
+        time: new Date().toLocaleTimeString()
+    }
+    callHistory.push(data);
+
+    const callHistoryContainer = document.getElementById("call-history-container")
+
+    for(const history of callHistory){
+        const div = document.createElement("div")
+        div.innerHTML = `
+            <div class="w-full bg-[#FAFAFA] flex justify-between items-center rounded-[7px] mt-4 p-3">
+                <div>
+                    <h2 class="text-sm font-semibold">${data.name}</h2>
+                    <p>${data.number}</p>
+                </div>
+                <p class="text-sm font-semibold">${data.time}</p>
+            </div>
+        `
+        callHistoryContainer.appendChild(div)
+        return
+    }
 }
 
 // heart icon functionality
@@ -55,6 +81,7 @@ document.getElementById("heart-icon-9").addEventListener("click", function(){
 // call btn functionality
 document.getElementById("call-btn-1").addEventListener("click", function(){
     handleCallBtn("service-name-1", "service-number-1")
+    
 })
 
 document.getElementById("call-btn-2").addEventListener("click", function(){
@@ -88,3 +115,4 @@ document.getElementById("call-btn-8").addEventListener("click", function(){
 document.getElementById("call-btn-9").addEventListener("click", function(){
     handleCallBtn("service-name-9", "service-number-9")
 })
+
