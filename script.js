@@ -48,6 +48,22 @@ function handleCallBtn(id1,id2){
     }
 }
 
+// function to all copy btn 
+function handleCopyBtn(id){
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        alert("Copied successfully.");
+    })
+    .catch(err => {
+        console.error("Failed to copy")
+    })
+
+
+    const copyCount = parseInt(document.getElementById("copy-count").innerText);
+    const totalCopy = copyCount + 1;
+    document.getElementById("copy-count").innerText = totalCopy;
+}
+
 // heart icon functionality
 document.getElementById("heart-icon-1").addEventListener("click", function(){
     handleHeartIcon();
@@ -119,4 +135,40 @@ document.getElementById("call-btn-9").addEventListener("click", function(){
 // clear btn functionality
 document.getElementById("clear-btn").addEventListener("click", function(){
     document.getElementById("call-history-container").innerHTML = ""
+})
+
+// copy btn functionality
+document.getElementById("copy-btn-1").addEventListener("click", function(){
+    handleCopyBtn("service-number-1");
+})
+
+document.getElementById("copy-btn-2").addEventListener("click", function(){
+    handleCopyBtn("service-number-2");
+})
+
+document.getElementById("copy-btn-3").addEventListener("click", function(){
+    handleCopyBtn("service-number-3");
+})
+document.getElementById("copy-btn-4").addEventListener("click", function(){
+    handleCopyBtn("service-number-4");
+})
+
+document.getElementById("copy-btn-5").addEventListener("click", function(){
+    handleCopyBtn("service-number-5");
+})
+
+document.getElementById("copy-btn-6").addEventListener("click", function(){
+    handleCopyBtn("service-number-6");
+})
+
+document.getElementById("copy-btn-7").addEventListener("click", function(){
+    handleCopyBtn("service-number-7");
+})
+
+document.getElementById("copy-btn-8").addEventListener("click", function(){
+    handleCopyBtn("service-number-8");
+})
+
+document.getElementById("copy-btn-9").addEventListener("click", function(){
+    handleCopyBtn("service-number-9");
 })
